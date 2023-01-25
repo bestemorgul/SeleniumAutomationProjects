@@ -37,6 +37,11 @@ public class Locators {
         driver.findElement(By.cssSelector("input#user-name"));
         driver.findElement(By.cssSelector("input.form_input"));
 
+        driver.findElement(By.xpath("//input[@id='user-name']"));
+        driver.findElement(By.xpath("//input[@id='user-name'][1]"));
+        driver.findElement(By.xpath("//h4[text()='Password for all users:']"));
+        driver.findElement(By.xpath("//h4[contains(text(),'Password for all users:')]"));
+
 
         //RELATIVE LOCATORS
 
