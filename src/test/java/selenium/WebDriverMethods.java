@@ -48,8 +48,7 @@ public class WebDriverMethods {
         driver.manage().window().minimize();
         driver.manage().window().maximize();
 
-
-
+        driver.quit();
 
     }
 }
