@@ -9,7 +9,7 @@ import java.time.Duration;
 
 public class WebDriverMethods {
 
-    public static WebDriver driver; //webdriver is an outermost interface for (safaridriver, chromedriver and others)
+    public static WebDriver driver;
     public static String browser = "safari";
 
     public static void main(String[] args) {
