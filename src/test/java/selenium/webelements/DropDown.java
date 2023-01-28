@@ -1,4 +1,4 @@
-package selenium.webElements;
+package selenium.webelements;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -29,18 +29,17 @@ public class DropDown {
 
         //FIND TOTAL OPTIONS IN DROPDOWN
         List<WebElement> options = select.getOptions();
-        System.out.println("total number of options:"+ options.size());
+        System.out.println("total number of options:" + options.size());
 
         //PRINT OPTIONS IN CONSOLE WINDOW
-        for (int i=0; i<options.size(); i++){
+        for (int i = 0; i < options.size(); i++) {
             System.out.println(options.get(i).getText());
         }
 
         //USING ENHANCED LOOP
-        for (WebElement op: options){
+        for (WebElement op : options) {
             System.out.println(op.getText());
         }
-
 
 
         //DROPDOWN NOT HAVING SELECT TAG NAME (BOOSTRAP DROPDOWN)
@@ -49,31 +48,49 @@ public class DropDown {
         List<WebElement> multiOptions = driver.findElements(By.xpath("//ul[contains(@class,multiselect)]//label"));
 
         //FIND TOTAL NUMBER OF OPTIONS
-        System.out.println("Total numbrt of options:"+multiOptions.size());
+        System.out.println("Total number of options:" + multiOptions.size());
 
         //PRINT ALL THE OPTIONS FROM DROPDOWN
-        for (int i=0; i<multiOptions.size(); i++){
+        for (int i = 0; i < multiOptions.size(); i++) {
             System.out.println(multiOptions.get(i).getText());
         }
 
         //SELECT OPTIONS FROM DROPDOWN
-        for (int i=0; i<multiOptions.size(); i++){
+        for (int i = 0; i < multiOptions.size(); i++) {
             String option = multiOptions.get(i).getText();
-            if (option.equals("Java")){
+            if (option.equals("Java")) {
                 multiOptions.get(i).click();
                 break;
             }
         }
 
         //USING ENHANCED LOOP
-        for (WebElement optionSelected : multiOptions){
+        for (WebElement optionSelected : multiOptions) {
             String txt = optionSelected.getText();
-            if(txt.equals("Java")){
+            if (txt.equals("Java")) {
                 optionSelected.click();
             }
         }
 
 
+        //AUTO SUGGESTION DROPDOWN
+        driver.get("https://www.google.com/?client=safari");
+        driver.findElement(By.xpath("//input[@name='q']")).sendKeys("selenium");
+        List<WebElement> list = driver.findElements(By.xpath("//div[contains(@class,'wM6W7d')]//span"));
+        System.out.println("Number of suggestions:" + list.size());
+
+        //SELECT AND OPTION FROM LIST
+        for (int i=0;i<list.size();i++) {
+         String listText = list.get(i).getText();
+         if (listText.equals("selenium webdriver")){
+             list.get(i).click();
+             break;
+         }
+        }
+
+
+
 
     }
 }
+
